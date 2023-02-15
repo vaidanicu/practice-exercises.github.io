@@ -81,27 +81,14 @@ var employees = [
   },
 ];
 
-//2.
+//3.
 
-function collectFirstName(employees) {
-  if (!employees) {
-    console.log("you did not provide any value");
-  }
-  var firstName = employees.map((employee) => {
-    return employee.firstName;
+function calculateAverageSalary(employees) {
+  var average = 0;
+  employees.forEach((employee) => {
+    average += parseFloat(employee.salary);
   });
-  console.log(firstName);
+  console.log("AverageSalary :", average);
 }
 
-collectFirstName(employees);
-
-// Bonus
-
-function collectLastName(employees) {
-  var lastName = employees.map((employee) => {
-    return employee.lastName;
-  });
-  console.log(lastName);
-}
-
-collectLastName(employees);
+calculateAverageSalary(employees);
