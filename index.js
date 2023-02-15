@@ -83,12 +83,18 @@ var employees = [
 
 //3.
 
-function calculateAverageSalary(employees) {
-  var average = 0;
-  employees.forEach((employee) => {
-    average += parseFloat(employee.salary);
-  });
-  console.log("AverageSalary :", average);
-}
+function calculateAverageFemSalary(employees) {
+  var TotalSalaryFem = 0;
+  var averageFem = 0;
 
-calculateAverageSalary(employees);
+  employees.forEach((employee) => {
+    if (employee.gender === "Female") {
+      TotalSalaryFem += parseFloat(employee.salary);
+      return TotalSalaryFem;
+    }
+
+    averageFem = TotalSalaryFem / employee.salary.length;
+    console.log(averageFem);
+  });
+}
+calculateAverageFemSalary(employees);
