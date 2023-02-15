@@ -80,21 +80,18 @@ var employees = [
     salary: "668.98",
   },
 ];
+//5
 
-//3.
-
-function calculateAverageFemSalary(employees) {
-  var TotalSalaryFem = 0;
-  var averageFem = 0;
-
-  employees.forEach((employee) => {
-    if (employee.gender === "Female") {
-      TotalSalaryFem += parseFloat(employee.salary);
-      return TotalSalaryFem;
-    }
-
-    averageFem = TotalSalaryFem / employee.salary.length;
-    console.log(averageFem);
+function splitEmployees(employees) {
+  var Female = employees.filter((employee) => {
+    return employee.gender === "Female";
   });
+  console.log(Female);
+
+  var Male = employees.filter((employee) => {
+    return employee.gender === "Male";
+  });
+  console.log(Male);
 }
-calculateAverageFemSalary(employees);
+
+splitEmployees(employees);
