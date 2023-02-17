@@ -80,18 +80,31 @@ var employees = [
     salary: "668.98",
   },
 ];
-//5
 
-function splitEmployees(employees) {
-  var Female = employees.filter((employee) => {
-    return employee.gender === "Female";
-  });
-  console.log(Female);
+// Exemplu 1
 
-  var Male = employees.filter((employee) => {
-    return employee.gender === "Male";
+function AllEmployees(employees) {
+  var Convert = {};
+
+  employees.forEach((employee) => {
+    console.log(employee);
+
+    Convert[employee.lastName] = employee;
+
+    console.log(Convert);
   });
-  console.log(Male);
 }
 
-splitEmployees(employees);
+AllEmployees(employees);
+
+/* Exemplu 2 cu .reduce */
+
+function ConvertAllEmployees(employees) {
+  var EmployessAll = employees.reduce((acc, curr) => ({
+    ...acc,
+    [curr.lastName]: curr,
+  }));
+  console.log(EmployessAll);
+}
+
+ConvertAllEmployees(employees);
