@@ -146,3 +146,41 @@ const fullNameES6 = inventors.map(
 );
 console.log(fullNameES6);
 /* ================================================================================================================================================= */
+//11
+
+const findePerson = inventors.find((inventor) => {
+  return inventor.first === "Galileo";
+});
+console.log(findePerson);
+
+/* ES6 */
+const findePersonES6 = inventors.find(
+  (inventor) => inventor.first === "Galileo"
+);
+console.log(findePersonES6);
+
+/* ===================================================================================================================================================== */
+//12  .sort Name
+
+/* const ordered = inventors.sort((firstPerson, secondPerson) => {
+  if (firstPerson.year > secondPerson.year) {
+    return 11;
+  } else {
+    return -1;
+  }
+});
+console.table(ordered);
+ */
+// ES6
+
+const ordered = inventors.sort((firstPerson, secondPerson) =>
+  firstPerson.year > secondPerson.year ? 1 : -1
+);
+console.table(ordered);
+
+//.reduce
+
+const totalYears = inventors.reduce((total, inventor) => {
+  return total + (inventor.passed + inventor.year);
+}, 0);
+console.log(totalYears);
