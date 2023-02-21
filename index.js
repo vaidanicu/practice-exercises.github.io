@@ -81,30 +81,92 @@ var employees = [
   },
 ];
 
-// Exemplu 1
+//2.
 
-function AllEmployees(employees) {
-  var Convert = {};
+function collectFirstName(employees) {
+  const allname = employees.map((employee) => {
+    return employee.firstName;
+  });
+  console.log(allname);
+}
+
+collectFirstName(employees);
+/* ============================================================================================================ */
+/* 3. */
+/* function calculateAverageSalary(employees) {
+  var sum = 0;
+  employees.forEach((employee) => {
+    sum += parseFloat(employee.salary);
+  });
+  console.log(sum);
+}
+
+
+calculateAverageSalary(employees);
+ */
+
+function calculateAverageSalary(employees) {
+  var averageSalary = 0;
+  employees.forEach((employee) => {
+    averageSalary += parseFloat(employee.salary);
+  });
+  console.log(averageSalary);
+}
+
+calculateAverageSalary(employees);
+//4.
+/* ========================================================================================================================================================== */
+function calculateAverageFemSalary(employees) {
+  var TotalSalaryFem = 0;
+  var averageFem = 0;
 
   employees.forEach((employee) => {
-    console.log(employee);
+    if (employee.gender === "Female") {
+      TotalSalaryFem += parseFloat(employee.salary);
+      return TotalSalaryFem;
+    }
 
-    Convert[employee.lastName] = employee;
-
-    console.log(Convert);
+    averageFem = TotalSalaryFem / employee.salary.length;
+    console.log(averageFem);
   });
 }
 
-AllEmployees(employees);
+averageFem = calculateAverageFemSalary(employees);
+/* ===================================================================================================================================================== */
 
-/* Exemplu 2 cu .reduce */
+//5
 
-function ConvertAllEmployees(employees) {
-  var EmployessAll = employees.reduce((acc, curr) => ({
+function splitEmployees(employees) {
+  var female = employees.filter((employee) => employee.gender === "Female");
+  console.log(female);
+
+  var male = employees.filter((employee) => employee.gender === "Male");
+  console.log(male);
+}
+splitEmployees(employees);
+/* =============================================================================================== */
+
+//6 convert with ForEach
+
+function convertAllEmployees(employees) {
+  var convert = {};
+
+  employees.forEach((employee) => {
+    convert[employee.lastName] = employee;
+  });
+  console.log(convert);
+}
+
+convertAllEmployees(employees);
+
+/* Convert with .reduce  */
+
+function convertAllEmployees(employees) {
+  var AllEmployees = employees.reduce((acc, curr) => ({
     ...acc,
     [curr.lastName]: curr,
   }));
-  console.log(EmployessAll);
+  console.log(AllEmployees);
 }
 
-ConvertAllEmployees(employees);
+convertAllEmployees(employees);
