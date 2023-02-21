@@ -131,3 +131,18 @@ const filterYearES6 = inventors.filter(
 );
 
 console.table(filterYearES6);
+/* ===================================================================================================================================== */
+//10
+
+const fullName = inventors.map(
+  (inventor) => inventor.first + " " + inventor.last
+);
+console.log(fullName);
+
+// ES6
+
+const fullNameES6 = inventors.map(
+  (inventor) => `${inventor.first} ${inventors.last}`
+);
+console.log(fullNameES6);
+/* ================================================================================================================================================= */
